@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gifimage/flutter_gifimage.dart';
 void main() => runApp(MyApp());
@@ -54,14 +52,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     controller1 = GifController(vsync: this);
     controller2 = GifController(vsync: this);
     controller4= GifController(vsync: this);
-    WidgetsBinding.instance!.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_){
       controller1.repeat(min: 0,max: 53,period: Duration(milliseconds: 200));
     });
-    WidgetsBinding.instance!.addPostFrameCallback((_){
+    WidgetsBinding.instance.addPostFrameCallback((_){
       controller2.repeat(min: 0,max: 13,period: Duration(milliseconds: 200));
       controller4.repeat(min: 0,max: 13,period: Duration(milliseconds: 200));
     });
@@ -112,19 +109,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("无限循环"),
                     onPressed: (){
                       controller3.repeat(min: 0,max: 25,period: Duration(milliseconds: 500));
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("暂停"),
                     onPressed: (){
                       controller3.stop();
                     },
                   ),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text("播放到末尾一次"),
                     onPressed: (){
                       controller3.animateTo(52,duration: Duration(milliseconds: 1000));
